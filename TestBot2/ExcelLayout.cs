@@ -32,13 +32,15 @@ namespace TestBot2
                 int[] ranges = new int[] { 1, 30, 60, 90, 120, 150, 180 };
                 int tes = random.Next(ranges.Length);
 
-                int firstRange = ranges[tes - 1];
+                int firstRange = ranges[tes];
+                
                 //добавить проверку воторого значения
-                    if(firstRange != 0 )
-                    {
+                    if(firstRange == ranges.Max() | firstRange == ranges.Min() )
+                    {   
+                            
                         using (StreamWriter writer = new StreamWriter(dest, true, Encoding.UTF8))
                         {
-                            for (int i = ranges[tes - 1]; i < ranges[tes]; i++)
+                            for (int i = ranges[tes-1]; i < ranges[tes]; i++)
                             {
 
                                 // Перебрать каждый столбец в выбранной строке

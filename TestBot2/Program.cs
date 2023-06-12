@@ -10,7 +10,7 @@ using Telegram.Bot.Types.Enums;
 using TestBot2;
 using File = System.IO.File;
 
-var botClient = new TelegramBotClient("");
+var botClient = new TelegramBotClient("6253942110:AAHrDIXUsN3LXxFLDncrFcbgrETqMnY1lV8");
 
   Quiz quiz;
 
@@ -19,7 +19,7 @@ Dictionary<long, int> PlayerScore;
 string pathToLog = "log.txt";
 
 ExcelLayout excel = new();
-excel.Excel(@"");//C:\Users\Василий\Desktop\Kursk.xls
+excel.Excel(@"C:\Users\Василий\Desktop\Kursk.xls");
 
 quiz = new Quiz("testKursk.txt");
 
@@ -208,7 +208,7 @@ async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, Cancel
 
 
                 
-        if (update.CallbackQuery != null)
+           if (update.CallbackQuery != null)
 {
                 var callbackQuery = update.CallbackQuery;
                 string buttonText = callbackQuery.Data;
