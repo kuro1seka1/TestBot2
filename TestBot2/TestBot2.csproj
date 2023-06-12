@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="Aspose.Cells" Version="23.6.0" />
+    <PackageReference Include="SkiaSharp.NativeAssets.Linux.NoDependencies" Version="2.88.3" />
     <PackageReference Include="Telegram.Bot" Version="19.0.0" />
   </ItemGroup>
 
