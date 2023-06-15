@@ -35,12 +35,35 @@ namespace TestBot2
                 int firstRange = ranges[tes];
                 
                 //добавить проверку воторого значения
-                    if(firstRange == ranges.Max() | firstRange == ranges.Min() )
+                    if( firstRange == ranges.Min() )
                     {   
                             
                         using (StreamWriter writer = new StreamWriter(dest, true, Encoding.UTF8))
                         {
-                            for (int i = ranges[tes-1]; i < ranges[tes]; i++)
+                            for (int i = ranges[tes]; i < ranges[tes+1]; i++)
+                            {
+
+                                // Перебрать каждый столбец в выбранной строке
+                                for (int j = 0; j < cols; j++)
+                                {
+                                    // Значение чейки Pring
+                                    var test = "|" + worksheet.Cells[i, j].Value + "|";
+
+                                    await writer.WriteAsync(test.TrimStart('|'));
+
+                                }
+                                // Распечатать разрыв строки
+                                await writer.WriteAsync('\n');
+
+                            }
+
+                        }
+                    }
+                    else if(firstRange == ranges.Max() ) 
+                    {
+                        using (StreamWriter writer = new StreamWriter(dest, true, Encoding.UTF8))
+                        {
+                            for (int i = ranges[tes - 1]; i < ranges[tes]; i++)
                             {
 
                                 // Перебрать каждый столбец в выбранной строке
@@ -59,8 +82,9 @@ namespace TestBot2
                             }
 
                         }
+
                     }
-                    else
+                    else 
                     {
                         using (StreamWriter writer = new StreamWriter(dest, true, Encoding.UTF8))
                         {
@@ -85,9 +109,9 @@ namespace TestBot2
                         }
 
                     }
-                   
-                
-               
+
+
+
 
             }
         }
