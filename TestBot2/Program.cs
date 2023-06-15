@@ -59,7 +59,7 @@ cts.Cancel();
 
 async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
 {
-    excel.Excel(@"C:\Users\Василий\Desktop\Kursk.xls");
+    
     if (update.Message is not { } message)
         return;
     
@@ -96,6 +96,7 @@ async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, Cancel
         
         else if(message.Text == "/quiz")
         {
+            excel.Excel(@"C:\Users\Василий\Desktop\Kursk.xls");
             offset = update.Id + 1;
             var playerId = message.From.Id;
             if (!States.TryGetValue(chatId, out var state))
