@@ -59,7 +59,7 @@ cts.Cancel();
 
 async Task HandleUpdateAsync(ITelegramBotClient botClient, Update update, CancellationToken cancellationToken)
 {
-    
+    excel.Excel(@"C:\Users\Василий\Desktop\Kursk.xls");
     if (update.Message is not { } message)
         return;
     
